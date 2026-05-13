@@ -75,7 +75,8 @@ button {
 .brand-role,
 .intro,
 .theme-toggle-label,
-.photo-meta p {
+.photo-meta p,
+.photo-meta time {
   font-size: 0.85rem;
   color: var(--muted);
 }
@@ -291,7 +292,8 @@ html.dark .theme-toggle-thumb {
 }
 
 .photo-meta h2,
-.photo-meta p {
+.photo-meta p,
+.photo-meta time {
   margin: 0;
 }
 
@@ -304,6 +306,18 @@ html.dark .theme-toggle-thumb {
 
 .photo-meta p {
   color: rgba(255, 255, 255, 0.82);
+}
+
+.photo-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.photo-meta time {
+  color: rgba(255, 255, 255, 0.72);
 }
 
 @media (max-width: 1100px) {
