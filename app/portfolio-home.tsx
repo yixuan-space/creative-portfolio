@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import type { ImgHTMLAttributes } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const storageKey = "portfolio-theme";
 
@@ -27,6 +28,58 @@ const heroSlides = [
     src: "/assets/portrait-profile.svg",
   },
 ];
+
+type FadeImageProps = ImgHTMLAttributes<HTMLImageElement> & {
+  frameClassName?: string;
+};
+
+function FadeImage({
+  className,
+  frameClassName = "",
+  onLoad,
+  onError,
+  ...props
+}: FadeImageProps) {
+  const imageRef = useRef<HTMLImageElement>(null);
+  const [loadedSrc, setLoadedSrc] = useState<FadeImageProps["src"]>();
+  const isLoaded = loadedSrc === props.src;
+
+  useEffect(() => {
+    if (imageRef.current?.complete && props.src) {
+      setLoadedSrc(props.src);
+    }
+  }, [props.src]);
+
+  const imageClassName = ["fade-image", isLoaded ? "is-loaded" : "", className]
+    .filter(Boolean)
+    .join(" ");
+  const wrapperClassName = [
+    "fade-image-frame",
+    isLoaded ? "is-loaded" : "is-loading",
+    frameClassName,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return (
+    <span className={wrapperClassName}>
+      <span className="fade-image-loader" aria-hidden="true" />
+      <img
+        {...props}
+        ref={imageRef}
+        className={imageClassName}
+        onLoad={(event) => {
+          setLoadedSrc(props.src);
+          onLoad?.(event);
+        }}
+        onError={(event) => {
+          setLoadedSrc(props.src);
+          onError?.(event);
+        }}
+      />
+    </span>
+  );
+}
 
 const galleryPhotos = [
   {
@@ -238,7 +291,11 @@ export function PortfolioHome() {
                 key={slide.id}
                 className={`carousel-slide${index === activeSlide ? " is-active" : ""}`}
               >
-                <img src={slide.src} alt={slide.alt} />
+                <FadeImage
+                  src={slide.src}
+                  alt={slide.alt}
+                  frameClassName="carousel-image-frame"
+                />
                 <div className="carousel-copy">
                   <p>{slide.id}</p>
                   <h1>{slide.title}</h1>
@@ -269,7 +326,7 @@ export function PortfolioHome() {
                 onClick={() => openPhotoDetail(index)}
                 aria-label={`查看作品 ${photo.title} 详情`}
               >
-                <img src={photo.src} alt={photo.alt} />
+                <FadeImage src={photo.src} alt={photo.alt} />
               </button>
               <div className="photo-meta">
                 <h2>{photo.title}</h2>
@@ -319,7 +376,11 @@ export function PortfolioHome() {
                 aria-label={isZoomed ? "退出图片放大预览" : "放大预览图片"}
                 onClick={() => setIsZoomed((current) => !current)}
               >
-                <img src={selectedPhoto.src} alt={selectedPhoto.alt} />
+                <FadeImage
+                  src={selectedPhoto.src}
+                  alt={selectedPhoto.alt}
+                  frameClassName="detail-image-frame"
+                />
                 <span className="detail-zoom-hint">
                   {isZoomed ? "点击缩小" : "点击放大预览"}
                 </span>
@@ -361,7 +422,7 @@ export function PortfolioHome() {
                     onClick={() => openPhotoDetail(index)}
                     aria-label={`切换到作品 ${photo.title}`}
                   >
-                    <img src={photo.src} alt={photo.alt} />
+                    <FadeImage src={photo.src} alt={photo.alt} />
                   </button>
                 ))}
               </div>
