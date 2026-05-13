@@ -346,7 +346,21 @@ html.dark .theme-toggle-thumb {
   }
 
   .masonry {
-    column-count: 2;
+    column-count: 1;
+    column-gap: 12px;
+  }
+
+  .photo-card {
+    margin-bottom: 12px;
+  }
+
+  .photo-card::after {
+    opacity: 1;
+  }
+
+  .photo-meta {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -372,11 +386,6 @@ html.dark .theme-toggle-thumb {
   }
 
   .masonry {
-    column-count: 1;
-    column-gap: 12px;
-  }
-
-  .photo-card {
-    margin-bottom: 12px;
+    column-gap: 10px;
   }
 }
