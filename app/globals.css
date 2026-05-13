@@ -1,0 +1,368 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f1eb;
+  --panel: rgba(255, 255, 255, 0.72);
+  --panel-strong: rgba(255, 255, 255, 0.88);
+  --text: #111111;
+  --muted: rgba(17, 17, 17, 0.64);
+  --border: rgba(17, 17, 17, 0.08);
+  --shadow: 0 18px 48px rgba(17, 17, 17, 0.08);
+}
+
+html.dark {
+  color-scheme: dark;
+  --bg: #090909;
+  --panel: rgba(20, 20, 20, 0.78);
+  --panel-strong: rgba(30, 30, 30, 0.9);
+  --text: #f5f2ec;
+  --muted: rgba(245, 242, 236, 0.66);
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.34);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+.topbar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 24px;
+  backdrop-filter: blur(18px);
+  background: linear-gradient(to bottom, var(--panel-strong), transparent);
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.brand-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.brand-role,
+.intro,
+.theme-toggle-label,
+.photo-meta p {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.intro {
+  margin: 0;
+}
+
+.theme-toggle {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 6px 10px 6px 6px;
+  min-width: 96px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background-color 220ms ease, border-color 220ms ease, transform 180ms ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.theme-toggle-track {
+  width: 42px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(127, 127, 127, 0.22);
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--text);
+  transition: transform 220ms ease, background-color 220ms ease;
+}
+
+html.dark .theme-toggle-thumb {
+  transform: translateX(18px);
+}
+
+.gallery-shell {
+  min-height: 100vh;
+  padding: 92px 18px 18px;
+}
+
+.hero-carousel {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.carousel-viewport {
+  position: relative;
+  min-height: min(78vh, 920px);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #0b0b0b;
+  box-shadow: var(--shadow);
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 420ms ease;
+}
+
+.carousel-slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.08) 48%, rgba(0, 0, 0, 0));
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-copy {
+  position: absolute;
+  left: clamp(20px, 4vw, 44px);
+  right: 20px;
+  bottom: clamp(20px, 4vw, 40px);
+  z-index: 1;
+  color: #f5f5f5;
+}
+
+.carousel-copy p,
+.carousel-copy h1,
+.carousel-copy span {
+  margin: 0;
+}
+
+.carousel-copy p,
+.carousel-copy span {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.carousel-copy h1 {
+  margin: 8px 0 6px;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 600;
+}
+
+.carousel-controls {
+  display: flex;
+  gap: 10px;
+  padding: 14px 4px 2px;
+}
+
+.carousel-dot {
+  width: 44px;
+  height: 4px;
+  border: 0;
+  padding: 0;
+  border-radius: 999px;
+  background: rgba(127, 127, 127, 0.34);
+  cursor: pointer;
+  transition: background-color 220ms ease, transform 180ms ease;
+}
+
+.carousel-dot:hover {
+  transform: translateY(-1px);
+}
+
+.carousel-dot.is-active {
+  background: var(--text);
+}
+
+.masonry {
+  column-count: 4;
+  column-gap: 16px;
+}
+
+.photo-card {
+  break-inside: avoid;
+  margin: 0 0 16px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.photo-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent 45%);
+  opacity: 0;
+  transition: opacity 220ms ease;
+  pointer-events: none;
+}
+
+.photo-card:hover::after,
+.photo-card:focus-within::after {
+  opacity: 1;
+}
+
+.photo-card img {
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 280ms ease, filter 220ms ease;
+}
+
+.photo-card:hover img,
+.photo-card:focus-within img {
+  transform: scale(1.02);
+  filter: saturate(1.05);
+}
+
+.photo-meta {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.photo-card:hover .photo-meta,
+.photo-card:focus-within .photo-meta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-meta h2,
+.photo-meta p {
+  margin: 0;
+}
+
+.photo-meta h2 {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.photo-meta p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@media (max-width: 1100px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 780px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .topbar-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .gallery-shell {
+    padding-top: 132px;
+  }
+
+  .carousel-viewport {
+    min-height: 68vh;
+  }
+
+  .masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 520px) {
+  .topbar {
+    padding: 16px;
+  }
+
+  .intro {
+    display: none;
+  }
+
+  .gallery-shell {
+    padding: 116px 12px 12px;
+  }
+
+  .carousel-viewport {
+    min-height: 58vh;
+  }
+
+  .carousel-copy h1 {
+    font-size: clamp(1.7rem, 9vw, 2.5rem);
+  }
+
+  .masonry {
+    column-count: 1;
+    column-gap: 12px;
+  }
+
+  .photo-card {
+    margin-bottom: 12px;
+  }
+}

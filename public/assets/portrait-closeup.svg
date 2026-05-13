@@ -1,0 +1,38 @@
+<svg width="1600" height="2200" viewBox="0 0 1600 2200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="280" y1="140" x2="1280" y2="2080" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5F5F5"/>
+      <stop offset="0.34" stop-color="#B7B7B7"/>
+      <stop offset="0.62" stop-color="#3B3B3B"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+    <radialGradient id="light" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(550 700) rotate(62) scale(860 660)">
+      <stop stop-color="white"/>
+      <stop offset="0.42" stop-color="#ECECEC"/>
+      <stop offset="0.8" stop-color="#757575"/>
+      <stop offset="1" stop-color="#111111" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="face" x1="560" y1="340" x2="1140" y2="1720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FAFAFA"/>
+      <stop offset="0.3" stop-color="#D0D0D0"/>
+      <stop offset="0.6" stop-color="#6A6A6A"/>
+      <stop offset="0.88" stop-color="#181818"/>
+      <stop offset="1" stop-color="#070707"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="2200" fill="url(#bg)"/>
+  <rect width="1600" height="2200" fill="url(#light)"/>
+  <ellipse cx="985" cy="1120" rx="430" ry="780" fill="url(#face)"/>
+  <ellipse cx="1230" cy="1120" rx="300" ry="760" fill="#050505"/>
+  <path d="M1002 690C932 686 854 742 820 836C792 913 794 1022 828 1124C864 1228 872 1310 854 1399C837 1481 788 1559 726 1626C838 1591 922 1509 974 1376C1015 1270 1037 1144 1048 1000C1060 851 1100 749 1178 680C1124 688 1062 693 1002 690Z" fill="#090909"/>
+  <path d="M778 1292C854 1270 925 1272 985 1312C903 1372 829 1392 740 1376C722 1372 719 1334 735 1316C748 1303 761 1298 778 1292Z" fill="#111111"/>
+  <path d="M734 956C778 924 824 902 874 897C928 893 965 907 997 935C908 953 826 973 740 1010C718 1019 709 975 734 956Z" fill="#0B0B0B"/>
+  <ellipse cx="786" cy="996" rx="64" ry="24" fill="#E9E9E9"/>
+  <ellipse cx="798" cy="1002" rx="36" ry="14" fill="#090909"/>
+  <path d="M896 1066C931 1028 972 1020 1021 1043C977 1062 942 1080 908 1113C889 1132 871 1094 896 1066Z" fill="#151515"/>
+  <path d="M792 1492C877 1454 965 1435 1052 1442C967 1501 875 1544 770 1570C742 1577 731 1518 792 1492Z" fill="#D8D8D8" fill-opacity="0.7"/>
+  <ellipse cx="675" cy="508" rx="210" ry="150" fill="white" fill-opacity="0.08" filter="url(#soft)"/>
+</svg>

@@ -1,0 +1,27 @@
+<svg width="1600" height="2200" viewBox="0 0 1600 2200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="116" y1="224" x2="1460" y2="1976" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B0B0B"/>
+      <stop offset="0.5" stop-color="#1A1A1A"/>
+      <stop offset="0.76" stop-color="#8B8B8B"/>
+      <stop offset="1" stop-color="#F1F1F1"/>
+    </linearGradient>
+    <radialGradient id="rim" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(990 1060) rotate(88) scale(820 540)">
+      <stop stop-color="white"/>
+      <stop offset="0.38" stop-color="#EAEAEA"/>
+      <stop offset="0.72" stop-color="#707070"/>
+      <stop offset="1" stop-color="#181818" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="body" x1="682" y1="354" x2="1064" y2="1880" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#131313"/>
+      <stop offset="0.8" stop-color="#040404"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="2200" fill="url(#bg)"/>
+  <rect width="1600" height="2200" fill="url(#rim)"/>
+  <path d="M570 1836C646 1510 698 1312 708 1138C716 998 765 874 848 778C885 734 936 674 970 618C1018 540 1022 446 986 364C1113 427 1185 544 1203 715C1218 856 1171 974 1072 1071C1031 1111 993 1147 976 1189C955 1240 962 1285 978 1328L1127 1735C1156 1815 1097 1902 1011 1902H668C603 1902 555 1863 570 1836Z" fill="url(#body)"/>
+  <path d="M844 690C899 723 936 767 948 826C964 905 928 989 854 1054C787 1112 737 1168 704 1236C675 1130 680 1037 720 962C746 914 788 869 799 815C810 761 800 720 844 690Z" fill="#090909"/>
+  <path d="M951 910C990 906 1036 929 1071 974C1000 971 948 1000 902 1050C881 1073 853 1040 873 1017C896 990 918 959 924 933C928 918 936 912 951 910Z" fill="#E5E5E5"/>
+  <path d="M912 1091C952 1083 986 1097 1013 1131C965 1141 932 1162 892 1200C869 1222 838 1190 860 1167C883 1144 894 1123 898 1107C900 1099 904 1093 912 1091Z" fill="#DCDCDC"/>
+  <path d="M693 1369C773 1324 846 1314 942 1342C839 1403 758 1466 680 1556C640 1603 565 1577 556 1518C547 1465 598 1422 693 1369Z" fill="#080808"/>
+</svg>
